@@ -1,0 +1,99 @@
+:root{
+  --cream:#BFB48F; --dark-purple:#564E58; --burgundy:#904E55; --off-white:#F2EFE9; --charcoal:#252627;
+}
+
+/* Page container & typography */
+.home-container{
+  margin:0; padding:32px 24px; min-height:100vh; background:var(--off-white);
+  box-sizing:border-box; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Title */
+.home-container h1{
+  color:var(--burgundy);
+  font-family:'Georgia',serif;
+  font-size:42px;
+  font-weight:700;
+  text-align:center;
+  margin:0 0 32px;
+  padding-bottom:16px;
+  border-bottom:3px solid var(--dark-purple);
+}
+
+/* Card wrapper for content block */
+.home-card{
+  width:clamp(320px, 60vw, 720px);
+  margin:0 auto;
+  background:#fff;
+  border:2px solid var(--dark-purple);
+  border-radius:12px;
+  padding:24px;
+  box-shadow:0 4px 8px rgba(37,38,39,.15);
+  transition:box-shadow .3s ease;
+  box-sizing:border-box;
+}
+.home-card:hover{ box-shadow:0 6px 12px rgba(37,38,39,.25); }
+
+/* Controls layout */
+.home-controls{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-top:8px;
+}
+
+/* Select styling to match app */
+.home-select{
+  appearance:none;
+  background:#fff;
+  color:var(--charcoal);
+  border:2px solid var(--cream);
+  border-radius:8px;
+  padding:10px 14px;
+  min-width:240px;
+  width: 100%;
+  font-size:16px;
+  line-height:1.4;
+  transition:border-color .2s ease, box-shadow .2s ease;
+}
+.home-select:hover{ border-color:var(--dark-purple); }
+.home-select:focus{
+  outline:none;
+  border-color:var(--burgundy);
+  box-shadow:0 0 0 3px rgba(144,78,85,.12);
+}
+
+/* Status text */
+.home-status{
+  color:var(--dark-purple);
+  text-align:center;
+  margin-top:16px;
+  font-size:16px;
+}
+
+/* Optional generic button style (if you add actions later) */
+.home-button{
+  background:var(--burgundy); color:var(--off-white);
+  border:none; border-radius:8px; padding:10px 18px;
+  font-weight:600; cursor:pointer; text-transform:uppercase; letter-spacing:.5px;
+  transition:all .2s ease;
+}
+.home-button:hover{
+  background:var(--dark-purple);
+  transform:translateY(-2px);
+  box-shadow:0 6px 12px rgba(37,38,39,.12);
+}
+.home-button.secondary{
+  background:transparent;
+  color:var(--dark-purple);
+  border:1px solid rgba(86,78,88,.12);
+}
+
+/* Responsive */
+@media (max-width:480px){
+  .home-card{ width:92%; padding:18px; }
+  .home-controls{ flex-direction:column; align-items:stretch; }
+  .home-select, .home-button{ width:100%; }
+}

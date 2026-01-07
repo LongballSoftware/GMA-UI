@@ -1,0 +1,164 @@
+:root {
+  --cream: #BFB48F;
+  --dark-purple: #564E58;
+  --burgundy: #904E55;
+  --off-white: #F2EFE9;
+  --charcoal: #252627;
+}
+
+.npc-generation-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background-color: var(--off-white);
+  color: var(--charcoal);
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(37, 37, 37, 0.12);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-height: 90vh;
+}
+
+.npc-generation-modal > h3 {
+  color: var(--burgundy);
+  font-family: 'Georgia', serif;
+  font-size: 24px;
+  margin: 0 0 12px 0;
+  border-bottom: 2px solid rgba(86, 78, 88, 0.06);
+  padding-bottom: 12px;
+}
+
+.npc-prompt {
+  margin: 8px 0 16px 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.npc-textfield {
+  width: 100%;
+  max-width: 800px;
+}
+
+.related-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 8px 0;
+}
+
+.expand-icon {
+  transition: transform 200ms ease-in-out;
+  color: var(--charcoal);
+}
+
+.expand-icon.expanded {
+  transform: rotate(180deg);
+}
+
+.npc-generation-modal,
+.npc-prompt,
+.related-list {
+  box-sizing: border-box;
+}
+
+.modal-body {
+  overflow-y: auto;
+  padding-right: 6px;
+  max-height: calc(90vh - 120px);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1 1 auto;
+  min-height: 0;
+  padding-bottom: 8px;
+}
+
+.related-list {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin-top: 8px;
+  padding: 12px;
+  border-radius: 8px;
+  background: rgba(191, 180, 143, 0.04);
+  border: 1px solid rgba(86, 78, 88, 0.04);
+  max-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+
+.related-list .MuiFormGroup-root {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.related-list .MuiFormControlLabel-root {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  white-space: normal;
+  word-break: break-word;
+}
+.related-list .MuiFormControlLabel-label {
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+
+.related-list .MuiFormControlLabel-root .MuiTypography-root {
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+
+.actions {
+  margin-top: 16px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  flex-shrink: 0;
+  background: var(--off-white);
+  padding-top: 8px;
+}
+
+.generate-button {
+  background-color: var(--dark-purple);
+  color: var(--off-white);
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.generate-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 12px rgba(86,78,88,0.15);
+}
+
+
+.MuiBackdrop-root {
+  background-color: rgba(0, 0, 0, 0.28) !important;
+}
+
+/* Smaller screens */
+@media (max-width: 600px) {
+  .npc-generation-modal {
+    width: 94%;
+    padding: 16px;
+  }
+  .npc-textfield {
+    width: 100%;
+  }
+  .actions {
+    justify-content: center;
+  }
+}

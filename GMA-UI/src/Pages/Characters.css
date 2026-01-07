@@ -1,0 +1,128 @@
+/* Color Palette Variables */
+:root {
+  --cream: #BFB48F;
+  --dark-purple: #564E58;
+  --burgundy: #904E55;
+  --off-white: #F2EFE9;
+  --charcoal: #252627;
+}
+
+/* Page Container */
+.characters-page-container {
+  position: relative; /* positioning context for absolute buttons */
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 32px 24px;
+  background-color: var(--off-white);
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+}
+
+/* Main Heading */
+.characters-page-container > h1 {
+  color: var(--burgundy);
+  font-size: 42px;
+  font-weight: 700;
+  margin: 0 0 32px 0;
+  font-family: 'Georgia', serif;
+  text-align: center;
+  border-bottom: 3px solid var(--dark-purple);
+  padding-bottom: 16px;
+}
+
+/* Top-right Add button (matches Locations add-button) */
+.characters-page-container .add-button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 30;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  border: none;
+  background-color: var(--burgundy);
+  color: var(--off-white);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  transition: background-color 0.18s ease, transform 0.12s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+/* Hover and focus for accessibility */
+.characters-page-container .add-button:hover {
+  background-color: var(--dark-purple);
+}
+.characters-page-container .add-button:focus {
+  outline: 3px solid rgba(144, 78, 85, 0.2);
+  outline-offset: 2px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+/* Optional icon sizing inside button (if using MUI Icon components) */
+.characters-page-container .add-button .MuiSvgIcon-root {
+  font-size: 20px;
+}
+
+/* Characters Grid Container */
+.characters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+
+/* Loading/Empty State */
+.characters-grid:empty::after {
+  content: 'No characters available.';
+  color: var(--dark-purple);
+  font-size: 18px;
+  text-align: center;
+  font-style: italic;
+  padding: 40px;
+  display: block;
+  background-color: rgba(191, 180, 143, 0.2);
+  border-radius: 8px;
+  border: 1px dashed var(--cream);
+  grid-column: 1 / -1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .characters-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .characters-page-container {
+    padding: 24px 16px;
+  }
+  
+  .characters-page-container > h1 {
+    font-size: 32px;
+  }
+
+  /* Slightly smaller add button for small screens to avoid overlap with centered title */
+  .characters-page-container .add-button {
+    width: 36px;
+    height: 36px;
+    top: 10px;
+    right: 8px;
+  }
+
+  .characters-page-container .add-button .MuiSvgIcon-root {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .characters-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

@@ -1,0 +1,138 @@
+:root {
+  --cream: #BFB48F;
+  --dark-purple: #564E58;
+  --burgundy: #904E55;
+  --off-white: #F2EFE9;
+  --charcoal: #252627;
+}
+
+/* Container inside MUI Modal (modal overlay centered via MUI sx) */
+.location-creation-modal {
+  width: clamp(320px, 45vw, 680px);
+  max-width: 90%;
+  background: var(--off-white);
+  border: 2px solid var(--dark-purple);
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 8px 24px rgba(37, 38, 39, 0.18);
+  display: flex;
+  gap: 12px;
+  flex-direction: column;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+  color: var(--charcoal);
+}
+
+/* Title styling — matches CharacterCard header style */
+.location-creation-modal h1 {
+  margin: 0;
+  color: var(--burgundy);
+  font-family: 'Georgia', serif;
+  font-size: 26px;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(86, 78, 88, 0.06);
+  padding-bottom: 8px;
+}
+
+/* Form layout */
+.location-creation-modal .form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+/* Make MUI textfields match the styling in other components */
+.location-creation-modal .MuiTextField-root {
+  width: 100%;
+}
+
+.location-creation-modal .MuiInputLabel-root {
+  color: var(--dark-purple);
+}
+
+.location-creation-modal .MuiInputLabel-root.Mui-focused {
+  color: var(--burgundy);
+}
+
+.location-creation-modal .MuiOutlinedInput-root {
+  background-color: white;
+}
+
+.location-creation-modal .MuiOutlinedInput-root fieldset {
+  border-color: var(--cream);
+  border-width: 2px;
+}
+
+.location-creation-modal .MuiOutlinedInput-root:hover fieldset {
+  border-color: var(--dark-purple);
+}
+
+.location-creation-modal .MuiOutlinedInput-root.Mui-focused fieldset {
+  border-color: var(--burgundy);
+}
+
+/* Buttons area */
+.location-creation-modal .actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+/* Reuse CharacterCard button visuals for primary action */
+.location-creation-modal button,
+.location-creation-modal .primary {
+  background-color: var(--burgundy);
+  color: var(--off-white);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.18s ease;
+}
+
+.location-creation-modal button.primary:hover {
+  background-color: var(--dark-purple);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(37, 38, 39, 0.12);
+}
+
+/* Cancel button style */
+.location-creation-modal button.secondary {
+  background: transparent;
+  color: var(--dark-purple);
+  border: 1px solid rgba(86, 78, 88, 0.12);
+  padding: 8px 14px;
+  border-radius: 8px;
+}
+
+/* Add focus styling for accessibility */
+.location-creation-modal button:focus,
+.location-creation-modal .MuiTextField-root .MuiInputBase-root:focus-within {
+  outline: 3px solid rgba(144, 78, 85, 0.12);
+  outline-offset: 2px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 480px) {
+  .location-creation-modal {
+    width: 92%;
+    padding: 18px;
+    gap: 10px;
+  }
+  .location-creation-modal h1 {
+    font-size: 20px;
+  }
+  .location-creation-modal .actions {
+    flex-direction: column-reverse; /* Put primary button on bottom */
+    align-items: stretch;
+  }
+  .location-creation-modal button {
+    width: 100%;
+  }
+}

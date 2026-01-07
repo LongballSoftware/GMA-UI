@@ -1,0 +1,199 @@
+:root {
+  --cream: #BFB48F;
+  --dark-purple: #564E58;
+  --burgundy: #904E55;
+  --off-white: #F2EFE9;
+  --charcoal: #252627;
+}
+
+/* Page Container (matches Characters container) */
+.locations-page-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 32px 24px;
+  background-color: var(--off-white);
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+  position: relative; /* element for absolutely positioned controls */
+}
+
+/* Main Heading (same look as Characters header) */
+.locations-page-container > h1 {
+  color: var(--burgundy);
+  font-size: 42px;
+  font-weight: 700;
+  margin: 0 0 32px 0;
+  font-family: 'Georgia', serif;
+  text-align: center;
+  border-bottom: 3px solid var(--dark-purple);
+  padding-bottom: 16px;
+}
+
+/* Controls row (centered row for filters, etc.; not for back/add buttons) */
+.locations-controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+/* Reusable icon button style for both back & add buttons */
+.locations-page-container .icon-button,
+.locations-page-container .back-button,
+.locations-page-container .add-button {
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  border: none;
+  background-color: var(--burgundy);
+  color: var(--off-white);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  transition: background-color 0.18s ease, transform 0.12s ease;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+}
+
+/* Add subtle focus styles for accessibility */
+.locations-page-container .icon-button:focus,
+.locations-page-container .back-button:focus,
+.locations-page-container .add-button:focus {
+  outline: 3px solid rgba(144, 78, 85, 0.2);
+  outline-offset: 2px;
+}
+
+/* Keep Back button anchored top-left and outside normal flow */
+.locations-breadcrumb {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  margin: 0;
+}
+
+/* Target the back button when inside the breadcrumb too */
+.locations-breadcrumb .back-button {
+  /* reusing common .back-button rules above but add pointer enhancements if needed */
+}
+
+/* Position the Add button top-right and outside normal flow so it won't push content */
+.locations-page-container .add-button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 30;
+}
+
+/* Hover interactions
+   - Slight lift effect for non-absolute controls (if you want)
+   - For the absolute back / add, keep a subtle color change but avoid large translation */
+.locations-controls button:hover,
+.locations-page-container .icon-button:hover {
+  background-color: var(--dark-purple);
+}
+
+/* Slight hover lift on control buttons inside the controls row (not absolute) */
+.locations-controls button:hover {
+  transform: translateY(-2px);
+}
+
+/* Grid for nations/provinces/cities — match Characters layout */
+.locations-grid {
+  display: grid;
+  gap: 24px;
+  margin-top: 32px;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+}
+
+/* Ensure the nation card fits the grid without extra margin */
+.locations-grid .nationCard {
+  margin: 0;
+}
+
+/* Loading / empty state aligned and styled like Characters page */
+.locations-loading,
+.locations-empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  color: var(--dark-purple);
+  font-style: italic;
+  font-size: 18px;
+}
+
+/* Provide grid fallback empty content like Characters.css */
+.locations-grid:empty::after {
+  content: 'No locations available.';
+  color: var(--dark-purple);
+  font-size: 18px;
+  text-align: center;
+  font-style: italic;
+  padding: 40px;
+  display: block;
+  background-color: rgba(191, 180, 143, 0.08);
+  border-radius: 8px;
+  border: 1px dashed var(--cream);
+  grid-column: 1 / -1;
+}
+
+/* Subsection header (Nations / Provinces / Cities) */
+.locations-page-container h2 {
+  color: var(--burgundy);
+  font-size: 22px;
+  font-weight: 700;
+  margin: 8px 0 16px 0;
+  font-family: 'Georgia', serif;
+  text-align: left;
+}
+
+/* Small meta text on each location card if needed */
+.location-meta {
+  color: var(--dark-purple);
+  font-size: 13px;
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+/* Responsive tweaks to match Characters layout */
+@media (max-width: 768px) {
+  .locations-page-container {
+    padding: 24px 16px;
+  }
+  .locations-page-container > h1 {
+    font-size: 32px;
+  }
+  .locations-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Make the icon buttons slightly smaller on narrow screens to prevent overlap with centered title */
+  .locations-page-container .icon-button,
+  .locations-page-container .back-button,
+  .locations-page-container .add-button {
+    width: 36px;
+    height: 36px;
+  }
+
+  /* Nudge buttons a bit closer to edges for smaller viewports */
+  .locations-breadcrumb { top: 10px; left: 8px; }
+  .locations-page-container .add-button { top: 10px; right: 8px; }
+}
+
+@media (min-width: 1200px) {
+  .locations-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

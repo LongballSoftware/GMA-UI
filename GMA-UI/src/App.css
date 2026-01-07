@@ -1,0 +1,97 @@
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body {
+  padding: 1%;
+  margin: 0;
+  background-color: #F2EFE9;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  --cream: #BFB48F;
+  --dark-purple: #564E58;
+  --burgundy: #904E55;
+  --off-white: #F2EFE9;
+  --charcoal: #252627;
+}
+
+.nav-drawer {
+  width: 100%;
+  height: 100%;
+  padding: 16px 12px;
+  background-color: var(--off-white);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+}
+
+/* Branding at the top */
+.nav-brand {
+  font-family: 'Georgia', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--burgundy);
+  padding: 10px 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 2px solid rgba(86,78,88,0.08);
+}
+
+/* Navigation list */
+.nav-items {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Each nav item wrapper (applied to Box) */
+.nav-item {
+  display: block;
+  border-radius: 8px;
+  padding: 10px 12px;
+  transition: background-color 0.12s ease, transform 0.12s ease, box-shadow 0.12s ease;
+  border: 1px solid rgba(37,38,39,0.08);
+  background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.4));
+}
+
+/* Link style */
+.nav-link {
+  color: var(--charcoal);
+  text-decoration: none;
+  font-weight: 600;
+  display: block;
+}
+
+/* Hover and focus states */
+.nav-item:hover, .nav-item:focus-within {
+  background: linear-gradient(180deg, rgba(191,180,143,0.08), rgba(144,78,85,0.04));
+  transform: translateX(4px);
+  box-shadow: 0 6px 18px rgba(37,38,39,0.06);
+}
+
+/* Active link state - uses NavLink's active class */
+.nav-link.active {
+  background-color: rgba(90,75,85,0.06);
+  color: var(--burgundy);
+  font-weight: 700;
+  display: inline-block;
+}
+
+/* Smaller screens / compact adjustments */
+@media (max-width: 768px) {
+  .nav-drawer {
+    width: 220px;
+    padding: 8px 8px;
+  }
+  .nav-brand {
+    font-size: 18px;
+  }
+  .nav-item {
+    padding: 8px 10px;
+  }
+}

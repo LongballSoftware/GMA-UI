@@ -1,0 +1,138 @@
+/* Color Palette Variables */
+:root {
+  --cream: #BFB48F;
+  --dark-purple: #564E58;
+  --burgundy: #904E55;
+  --off-white: #F2EFE9;
+  --charcoal: #252627;
+}
+
+/* Base Card Styling */
+.baseCard {
+  background-color: var(--off-white) !important;
+  border: 2px solid var(--dark-purple) !important;
+  border-radius: 12px !important;
+  padding: 20px !important;
+  box-shadow: 0 4px 8px rgba(37, 38, 39, 0.15) !important;
+  transition: box-shadow 0.3s ease;
+  margin: 2% auto;
+}
+
+.baseCard:hover {
+  box-shadow: 0 6px 12px rgba(37, 38, 39, 0.25) !important;
+}
+
+/* Card Header */
+.baseCard .MuiCardHeader-root {
+  padding: 0 0 16px 0 !important;
+  border-bottom: 1px solid var(--cream);
+  margin-bottom: 16px;
+}
+
+/* Icon Button */
+.baseCard .MuiIconButton-root {
+  color: var(--dark-purple) !important;
+  background-color: transparent !important;
+}
+
+/* Menu Styling */
+.baseCard .MuiMenu-paper {
+  background-color: var(--off-white) !important;
+  border: 1px solid var(--dark-purple);
+}
+
+.baseCard .MuiMenuItem-root {
+  color: var(--charcoal) !important;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.baseCard .MuiMenuItem-root:hover {
+  background-color: var(--cream) !important;
+}
+
+/* Typography */
+.baseCard h3 {
+  color: var(--burgundy);
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  font-family: 'Georgia', serif;
+}
+
+.baseCard p {
+  color: var(--charcoal);
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 8px 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.baseCard p:first-of-type {
+  color: var(--dark-purple);
+  font-weight: 600;
+  font-style: italic;
+  margin-bottom: 16px;
+}
+
+/* TextField Styling */
+.baseCard .MuiTextField-root {
+  margin: 12px 0 !important;
+}
+
+.baseCard .MuiInputLabel-root {
+  color: var(--dark-purple) !important;
+}
+
+.baseCard .MuiInputLabel-root.Mui-focused {
+  color: var(--burgundy) !important;
+}
+
+.baseCard .MuiOutlinedInput-root {
+  background-color: white;
+}
+
+.baseCard .MuiOutlinedInput-root fieldset {
+  border-color: var(--cream) !important;
+  border-width: 2px;
+}
+
+.baseCard .MuiOutlinedInput-root:hover fieldset {
+  border-color: var(--dark-purple) !important;
+}
+
+.baseCard .MuiOutlinedInput-root.Mui-focused fieldset {
+  border-color: var(--burgundy) !important;
+}
+
+.baseCard .MuiInputBase-input {
+  color: var(--charcoal) !important;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Save Button */
+.baseCard button {
+  background-color: var(--burgundy);
+  color: var(--off-white);
+  border: none;
+  border-radius: 8px;
+  padding: 12px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 16px;
+  transition: all 0.3s ease;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.baseCard button:hover {
+  background-color: var(--dark-purple);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(37, 38, 39, 0.2);
+}
+
+.baseCard button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(37, 38, 39, 0.2);
+}

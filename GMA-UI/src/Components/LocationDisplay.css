@@ -1,0 +1,177 @@
+:root {
+  --cream: #BFB48F;
+  --dark-purple: #564E58;
+  --burgundy: #904E55;
+  --off-white: #F2EFE9;
+  --charcoal: #252627;
+}
+
+/* Nation card styling */
+.nationCard {
+  background-color: var(--off-white);
+  border: 2px solid var(--dark-purple);
+  border-radius: 12px;
+  padding: 14px;
+  margin: 10px auto;
+  box-shadow: 0 4px 8px rgba(37, 38, 39, 0.12);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+  position: relative;
+}
+
+/* Hover & focus (keyboard accessible) */
+.nationCard:hover,
+.nationCard:focus-within {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(37, 38, 39, 0.18);
+  border-color: rgba(86, 78, 88, 0.9);
+}
+
+/* Header */
+.nationCard h3 {
+  color: var(--burgundy);
+  font-family: 'Georgia', serif;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+}
+
+/* Description */
+.nationCard p {
+  color: var(--charcoal);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+/* Small meta or subtitle */
+.nationCard .nation-meta {
+  color: var(--dark-purple);
+  font-weight: 600;
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+/* Keep layout tidy at narrow screens */
+@media (max-width: 768px) {
+  .nationCard {
+    padding: 12px;
+    margin: 10px;
+  }
+  .nationCard h3 {
+    font-size: 18px;
+  }
+  .nationCard p {
+    font-size: 13px;
+  }
+}
+
+/* --- New: Match MUI TextField visuals used in LocationCreationModal --- */
+/* Make textfields inside the nationCard match the creation modal styling */
+.nationCard .MuiTextField-root {
+  width: 100%;
+}
+
+/* Label colors */
+.nationCard .MuiInputLabel-root {
+  color: var(--dark-purple);
+}
+.nationCard .MuiInputLabel-root.Mui-focused {
+  color: var(--burgundy);
+}
+
+/* Input background and borders */
+.nationCard .MuiOutlinedInput-root {
+  background-color: white;
+  border-radius: 8px; /* match creation modal rounded look */
+}
+.nationCard .MuiOutlinedInput-root fieldset {
+  border-color: var(--cream);
+  border-width: 2px;
+}
+.nationCard .MuiOutlinedInput-root:hover fieldset {
+  border-color: var(--dark-purple);
+}
+.nationCard .MuiOutlinedInput-root.Mui-focused fieldset {
+  border-color: var(--burgundy);
+}
+
+/* Keep spacing between stacked TextFields */
+.nationCard .MuiTextField-root + .MuiTextField-root {
+  margin-top: 8px;
+}
+
+/* For textarea-like inputs, ensure comfortable padding and reasonable initial height
+   This prevents the textarea from expanding too large compared to the displayed description */
+.nationCard .MuiOutlinedInput-root textarea {
+  padding: 12px;
+  min-height: 44px;   /* about two lines of text; matches displayed paragraph */
+  max-height: 240px;  /* prevents uncontrolled huge growth */
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+/* If TextField uses rows props, keep it contained visually */
+.nationCard .MuiOutlinedInput-root.MuiInputBase-multiline {
+  min-height: 44px;
+}
+
+/* Focus outline for accessibility similar to the modal */
+.nationCard .MuiTextField-root .MuiInputBase-root:focus-within {
+  outline: 3px solid rgba(144, 78, 85, 0.12);
+  outline-offset: 2px;
+}
+
+/* Optional: style Save / Cancel buttons inside the card to match modal actions */
+.nationCard .actions,
+.nationCard .card-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+
+.nationCard button,
+.nationCard .primary {
+  background-color: var(--burgundy);
+  color: var(--off-white);
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.12s ease;
+}
+
+.nationCard button.primary:hover {
+  background-color: var(--dark-purple);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 12px rgba(37, 38, 39, 0.12);
+}
+
+.nationCard button.secondary {
+  background: transparent;
+  color: var(--dark-purple);
+  border: 1px solid rgba(86, 78, 88, 0.12);
+  padding: 6px 12px;
+  border-radius: 8px;
+}
+
+/* Optional: make the edit icon non-blocking and aligned top-right */
+.nationCard .MuiSvgIcon-root {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: var(--dark-purple);
+  cursor: pointer;
+  z-index: 2;
+}

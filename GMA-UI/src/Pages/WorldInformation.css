@@ -1,0 +1,158 @@
+:root{
+  --cream:#BFB48F; --dark-purple:#564E58; --burgundy:#904E55; --off-white:#F2EFE9; --charcoal:#252627;
+}
+
+/* Page container & typography */
+.world-information-container{
+  margin:0; padding:32px 24px; min-height:100vh; background:var(--off-white);
+  box-sizing:border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.world-information-container h1{ 
+  color:var(--burgundy); 
+  font-family:'Georgia',serif; 
+  font-size:42px; 
+  font-weight:700; 
+  text-align:center; margin:0 0 32px; 
+  padding-bottom:16px; 
+  border-bottom:3px solid var(--dark-purple); 
+}
+
+.world-information-container h2{ 
+  color:var(--burgundy); 
+  font-family:'Georgia',serif; 
+  font-size:28px; 
+  font-weight:700; 
+  margin:40px 0 20px; 
+}
+
+/* Card base: world info, facts card & modal content share styling */
+.world-information-container>div,
+.world-information-container .facts-card,
+.add-fact-modal .add-fact-modal-content {
+  background:#fff; border:2px solid var(--dark-purple); border-radius:12px; padding:24px; margin-bottom:32px;
+  box-shadow:0 4px 8px rgba(37,38,39,.15); transition:box-shadow .3s ease; box-sizing:border-box;
+}
+.world-information-container>div:hover,
+.world-information-container .facts-card:hover { box-shadow:0 6px 12px rgba(37,38,39,.25); }
+
+/* Title + header variants */
+.world-information-container>div h2 { font-size:32px; margin:0 0 20px; border-bottom:2px solid var(--cream); padding-bottom:12px; }
+.world-information-container .facts-card .facts-header{ display:flex; gap:16px; align-items:flex-start; justify-content:space-between; padding-bottom:12px; margin:0 0 12px; border-bottom:2px solid var(--cream); }
+.world-information-container .facts-card .facts-header h2{ margin:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; flex:1; }
+
+/* Button styles (primary / secondary) + add-btn */
+.btn-primary, .world-information-container button, .add-fact-modal .add-fact-modal-content .primary,
+.add-fact-modal .add-fact-modal-content button {
+  background:var(--burgundy); color:var(--off-white); border:none; border-radius:8px; padding:10px 18px; font-weight:600; cursor:pointer; text-transform:uppercase; letter-spacing:.5px; transition:all .2s ease;
+}
+.btn-primary:hover, .world-information-container button.primary:hover, .add-fact-modal .add-fact-modal-content button.primary:hover,
+.add-fact-modal .add-fact-modal-content button:hover { 
+  background:var(--dark-purple); transform:translateY(-2px); box-shadow:0 6px 12px rgba(37,38,39,.12); 
+}
+.btn-secondary, .world-information-container button.secondary, .add-fact-modal .add-fact-modal-content button.secondary {
+  background:transparent; color:var(--dark-purple); border:1px solid rgba(86,78,88,.12); padding:8px 14px; border-radius:8px;
+}
+.world-information-container .facts-card .add-button { 
+  width:44px; height:44px; padding:8px; display:inline-flex; align-items:center; justify-content:center; margin-bottom:0; 
+}
+
+/* Facts list */
+.world-information-container .facts-card ul{ 
+  list-style:none; 
+  padding:0; 
+  margin-top:16px; 
+}
+
+.world-information-container .facts-card ul li{
+  background:#F2EFE9; 
+  border-left:4px solid var(--burgundy); 
+  border-radius:8px; 
+  padding:16px 20px; 
+  margin-bottom:16px; 
+  color:var(--charcoal);
+  font-size:16px; 
+  line-height:1.6; 
+  box-shadow:0 2px 4px rgba(37,38,39,.06); 
+  transition:all .3s ease;
+}
+.world-information-container .facts-card ul li:hover{ 
+  border-left-color:var(--dark-purple); 
+  transform:translateX(8px); 
+  box-shadow:0 6px 12px rgba(37,38,39,.12); 
+}
+
+.world-information-container .facts-card p.no-facts{ 
+  color:var(--dark-purple); 
+  text-align:center; 
+  padding:20px; 
+  background:rgba(191,180,143,.12); 
+  border-radius:8px; 
+  border:1px dashed var(--cream); 
+}
+
+/* Loading text */
+.world-information-container>p{ 
+  color:var(--dark-purple); 
+  font-size:18px; 
+  text-align:center; 
+  font-style:italic; 
+  padding:40px 0; 
+}
+
+/* Modal content sizing & layout */
+.add-fact-modal{ display:flex; align-items:center; justify-content:center; }
+.add-fact-modal .add-fact-modal-content{ 
+  width:clamp(320px,45vw,680px); 
+  max-width:90%; 
+  padding:28px; 
+  box-shadow:0 8px 24px rgba(37,38,39,.18); 
+  gap:12px; 
+  display:flex; 
+  flex-direction:column; 
+  color:var(--charcoal); 
+}
+
+/* Form fields & textfield visuals shared */
+.form-fields, .add-fact-modal .add-fact-modal-content .form-fields { display:flex; flex-direction:column; gap:12px; margin-top:8px; }
+.card .MuiTextField-root, .add-fact-modal .add-fact-modal-content .MuiTextField-root,
+.world-information-container .facts-card .MuiTextField-root { width:100%; }
+.card .MuiInputLabel-root,
+.add-fact-modal .add-fact-modal-content .MuiInputLabel-root{ color:var(--dark-purple); }
+.card .MuiInputLabel-root.Mui-focused, .add-fact-modal .add-fact-modal-content .MuiInputLabel-root.Mui-focused { color:var(--burgundy); }
+.card .MuiOutlinedInput-root, .add-fact-modal .add-fact-modal-content .MuiOutlinedInput-root {
+  background:#fff; border-radius:8px;
+}
+.card .MuiOutlinedInput-root fieldset, .add-fact-modal .add-fact-modal-content .MuiOutlinedInput-root fieldset { 
+  border-color:var(--cream); 
+  border-width:2px; 
+}
+.card .MuiOutlinedInput-root:hover fieldset, .add-fact-modal .add-fact-modal-content .MuiOutlinedInput-root:hover fieldset { 
+  border-color:var(--dark-purple); 
+}
+.card .MuiOutlinedInput-root.Mui-focused fieldset, .add-fact-modal .add-fact-modal-content .MuiOutlinedInput-root.Mui-focused fieldset { 
+  border-color:var(--burgundy); 
+}
+
+/* textarea control limits */
+.card .MuiOutlinedInput-root textarea, .add-fact-modal .add-fact-modal-content .MuiOutlinedInput-root textarea {
+  padding:12px; 
+  min-height:44px; 
+  max-height:240px; 
+  resize:vertical; 
+  box-sizing:border-box;
+}
+
+/* Accessibility focus outlines */
+.card .MuiTextField-root .MuiInputBase-root:focus-within, .add-fact-modal .add-fact-modal-content .MuiTextField-root .MuiInputBase-root:focus-within,
+.add-fact-modal .add-fact-modal-content button:focus { outline:3px solid rgba(144,78,85,.12); outline-offset:2px; }
+
+/* Shared small utilities for header/action areas */
+.world-information-container .facts-card .facts-header h2 { margin:0; border-bottom: none; }
+
+/* Responsive tweaks */
+@media (max-width:480px){
+  .add-fact-modal .add-fact-modal-content{ width:92%; padding:18px; gap:10px; }
+  .add-fact-modal .add-fact-modal-content h1, .add-fact-modal .add-fact-modal-content h2{ font-size:20px; }
+  .add-fact-modal .add-fact-modal-content .actions{ flex-direction:column-reverse; align-items:stretch; }
+  .add-fact-modal .add-fact-modal-content button{ width:100%; }
+}

@@ -1,0 +1,159 @@
+:root{
+  --cream:#BFB48F; --dark-purple:#564E58; --burgundy:#904E55; --off-white:#F2EFE9; --charcoal:#252627;
+}
+
+/* Page container */
+.login-container{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:32px 24px;
+  background:var(--off-white);
+  box-sizing:border-box;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Card wrapper */
+.login-container > div,
+.login-card{
+  width:clamp(320px, 45vw, 640px);
+  background:#fff;
+  border:2px solid var(--dark-purple);
+  border-radius:12px;
+  padding:24px;
+  box-shadow:0 4px 8px rgba(37,38,39,.15);
+  transition:box-shadow .3s ease;
+  box-sizing:border-box;
+}
+.login-card:hover{ box-shadow:0 6px 12px rgba(37,38,39,.25); }
+
+/* Title */
+.login-card h2,
+.login-container h2{
+  color:var(--burgundy);
+  font-family:'Georgia',serif;
+  font-size:32px;
+  font-weight:700;
+  margin:0 0 16px;
+  padding-bottom:12px;
+  border-bottom:2px solid var(--cream);
+}
+
+/* Error message */
+.login-error{
+  color:#c62828;
+  background:rgba(198,40,40,.08);
+  border:1px solid rgba(198,40,40,.25);
+  border-radius:8px;
+  padding:10px 12px;
+  margin-bottom:12px;
+  font-size:14px;
+}
+
+/* Form layout */
+.login-fields{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  margin-top:8px;
+}
+
+/* Buttons */
+.login-actions{
+  display:flex;
+  gap:12px;
+  margin-top:16px;
+  justify-content:flex-end;
+  flex-wrap:wrap;
+}
+
+.login-button{
+  background:var(--burgundy);
+  color:var(--off-white);
+  border:none;
+  border-radius:8px;
+  padding:10px 18px;
+  font-weight:600;
+  cursor:pointer;
+  text-transform:uppercase;
+  letter-spacing:.5px;
+  transition:all .2s ease;
+}
+.login-button:hover{
+  background:var(--dark-purple);
+  transform:translateY(-2px);
+  box-shadow:0 6px 12px rgba(37,38,39,.12);
+}
+
+.login-button.secondary{
+  background:transparent;
+  color:var(--dark-purple);
+  border:1px solid rgba(86,78,88,.12);
+}
+
+/* MUI TextField visual alignment with app */
+.login-card .MuiTextField-root,
+.login-container .MuiTextField-root{ width:100%; }
+
+.login-card .MuiInputLabel-root,
+.login-container .MuiInputLabel-root{ color:var(--dark-purple); }
+
+.login-card .MuiInputLabel-root.Mui-focused,
+.login-container .MuiInputLabel-root.Mui-focused{ color:var(--burgundy); }
+
+.login-card .MuiOutlinedInput-root,
+.login-container .MuiOutlinedInput-root{
+  background:#fff; border-radius:8px;
+}
+.login-card .MuiOutlinedInput-root fieldset,
+.login-container .MuiOutlinedInput-root fieldset{
+  border-color:var(--cream); border-width:2px;
+}
+.login-card .MuiOutlinedInput-root:hover fieldset,
+.login-container .MuiOutlinedInput-root:hover fieldset{
+  border-color:var(--dark-purple);
+}
+.login-card .MuiOutlinedInput-root.Mui-focused fieldset,
+.login-container .MuiOutlinedInput-root.Mui-focused fieldset{
+  border-color:var(--burgundy);
+}
+
+/* Focus outlines */
+.login-card .MuiTextField-root .MuiInputBase-root:focus-within,
+.login-button:focus{
+  outline:3px solid rgba(144,78,85,.12);
+  outline-offset:2px;
+}
+
+.login-actions button{
+  background:var(--burgundy);
+  color:var(--off-white);
+  border:none;
+  border-radius:8px;
+  padding:10px 18px;
+  font-weight:600;
+  cursor:pointer;
+  text-transform:uppercase;
+  letter-spacing:.5px;
+  transition:all .2s ease;
+}
+.login-actions button:hover{
+  background:var(--dark-purple);
+  transform:translateY(-2px);
+  box-shadow:0 6px 12px rgba(37,38,39,.12);
+}
+
+.login-actions button.secondary{
+  background:transparent;
+  color:var(--dark-purple);
+  border:1px solid rgba(86,78,88,.12);
+}
+
+/* Responsive */
+@media (max-width:480px){
+  .login-container{ padding:20px; }
+  .login-card{ width:92%; padding:18px; }
+  .login-actions{ flex-direction:column; align-items:stretch; }
+  .login-button{ width:100%; }
+}
